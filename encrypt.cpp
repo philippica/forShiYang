@@ -3,22 +3,20 @@
 #include <cstdio>
 #include <cstring>
 #include <fstream>
+
 using namespace std;
 int main(int argc, char *argv[])
 {
 	if(argc == 1)
 	{
-		char getCharFromScream;
 		string stream = "";
 		// Input form the screan
-		while(cin >> getCharFromScream)
+		while(cin >> stream)
 		{
-			stream.push_back(getCharFromScream);
+			encrypt fooEncrypt;
+			fooEncrypt.updatePlainText(stream);
+			cout << fooEncrypt.getCipherText() << endl;
 		}
-		// Output on the Scream
-		encrypt fooEncrypt;
-		fooEncrypt.updatePlainText(stream);
-		cout << fooEncrypt.getCipherText() << endl;
 	}
 	else
 	{
@@ -30,8 +28,10 @@ int main(int argc, char *argv[])
 			ifstream fin(argv[i]);
 			while(fin >> getCharFromScream)
 			{
+				cout << getCharFromScream;
 				stream.push_back(getCharFromScream);
 			}
+			cout << endl;
 			// Output on the Scream
 			encrypt fooEncrypt;
 			fooEncrypt.updatePlainText(stream);
